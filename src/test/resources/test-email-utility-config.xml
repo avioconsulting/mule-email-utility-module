@@ -1,0 +1,10 @@
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:mule-email-utility="http://www.mulesoft.org/schema/mule/mule-email-utility"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/mule-email-utility http://www.mulesoft.org/schema/mule/mule-email-utility/current/mule-mule-email-utility.xsd">
+    <flow name="generate-email-content-test" doc:id="ebbb5976-ba5f-4df2-83d0-c85c997552d7" >
+        <mule-email-utility:generate-email-content doc:name="Generate Email Content" doc:id="f57d1ce8-d886-4c3a-bb7e-1409ed2e38b3" from='#["avio.from@avioconsulting.com"]' to='#["avio.to@avioconsulting.com"]' cc='#["avio.cc@avioconsulting.com"]' bcc='#["avio.bcc@avioconsulting.com"]' subject='#["Test Email Subject"]' contentType="#['text/plain']" content='#["&#10;This is a sample email content"]'/>
+    </flow>
+</mule>
