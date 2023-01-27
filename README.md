@@ -1,29 +1,30 @@
-# README #
+# Mule Email Utility Module Extension #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## What? ###
+This project contains utilities to generate email content that can be used in Mule application
 
-### What is this repository for? ###
+## Why? ###
+The main reason for developing this project is to generate encoded RFC 2822 Email content that is acceptable in Google Email API. This extension can be used in Mule application without requiring custom java code.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Changes ###
+### 1.0.0
+* Initial implementation
+ - Accepts below Email attributes to generate encoded RFC 2822 Email content that can be passed to Google Email API
+ 	- From 
+	- To
+	- CC 
+	- BCC
+	- Message Subject
+	- Message Content Type
+	- Message Content
 
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+## Dependency ##
+Add below dependency to your application pom.xml to use this module
+```xml
+<dependency>
+	<groupId>com.avioconsulting.mule</groupId>
+	<artifactId>mule-email-utility</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<classifier>mule-plugin</classifier>
+</dependency>
+```
