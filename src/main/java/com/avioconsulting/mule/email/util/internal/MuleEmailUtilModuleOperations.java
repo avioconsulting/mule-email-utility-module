@@ -63,34 +63,28 @@ public class MuleEmailUtilModuleOperations {
 
     String[] toAddressList = toAddress.split("[,]", 0);
     for (String toEmailAddress : toAddressList) {
-      System.out.println("toEmailAddress :: " + toEmailAddress);
       emailMessage.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(toEmailAddress));
     }
     if (ccAddress != null && ccAddress != "") {
       String[] ccAddressList = ccAddress.split("[,]", 0);
       for (String ccEmailAddress : ccAddressList) {
-        System.out.println("ccEmailAddress :: " + ccEmailAddress);
         emailMessage.addRecipient(javax.mail.Message.RecipientType.CC, new InternetAddress(ccEmailAddress));
       }
     }
     if (bccAddress != null && bccAddress != "") {
       String[] bccAddressList = bccAddress.split("[,]", 0);
       for (String bccEmailAddress : bccAddressList) {
-        System.out.println("bccEmailAddress :: " + bccEmailAddress);
         emailMessage.addRecipient(javax.mail.Message.RecipientType.BCC, new InternetAddress(bccEmailAddress));
       }
     }
     emailMessage.setSubject(messageSubject);
     if (messageContentType != null && messageContentType.equalsIgnoreCase(HTML_MSG_CONTENT_TYPE)) {
-      System.out.println("messageContentType :: " + messageContentType + ", Generating HTML Email content");
       Multipart multipart = new MimeMultipart();
       MimeBodyPart htmlPart = new MimeBodyPart();
       htmlPart.setContent(messageContent, "text/html; charset=utf-8");
       multipart.addBodyPart(htmlPart);
       emailMessage.setContent(multipart);
-      System.out.println("htmlPart content :: " + htmlPart + ", Content Type :: " + htmlPart.getContentType());
     } else {
-      System.out.println("messageContentType :: " + messageContentType + ", Generating Plain text Email content");
       emailMessage.setText(messageContent);
     }
 
@@ -103,7 +97,6 @@ public class MuleEmailUtilModuleOperations {
 
   private String encodeString(byte[] rawMessageBytes) {
     String encodedEmail = Base64.encodeBase64URLSafeString(rawMessageBytes);
-    System.out.println("encodedEmail :: " + encodedEmail);
     return encodedEmail;
   }
 }
